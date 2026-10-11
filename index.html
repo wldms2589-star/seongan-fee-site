@@ -108,6 +108,11 @@ section.alt{background:var(--tint2)}
 .price .won{font-size:38px;font-weight:800;letter-spacing:-.02em}
 .price .per{color:var(--sub);font-size:15px}
 .price-note{font-size:13px;color:var(--muted);margin-top:-12px}
+.elig{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:-6px;padding:5px 12px;border-radius:999px;background:var(--tint);color:var(--navy);font-size:13px;font-weight:700}
+.elig::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.fine b{color:var(--ink)}
+.eligs{display:flex;flex-wrap:wrap;gap:6px;margin-top:-6px}
+.eligs .elig{margin-top:0}
 .plan ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:15px}
 .plan li{position:relative;padding-left:24px}
 .plan li::before{content:"";position:absolute;left:3px;top:8px;width:10px;height:6px;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg)}
@@ -290,7 +295,7 @@ body[data-mode="ind"] [data-show="corp"],body[data-mode="corp"] [data-show="ind"
     </div>
     <dl class="hero-facts">
       <div><dt>개인사업자 기장</dt><dd class="num">월 88,000원부터</dd></div>
-      <div><dt>법인사업자 기장</dt><dd class="num">월 132,000원부터</dd></div>
+      <div><dt>법인사업자 기장 (1인 법인)</dt><dd class="num">월 132,000원부터</dd></div>
       <div><dt>결제 방식</dt><dd>CMS 자동이체 / 카드 결제</dd></div>
     </dl>
   </div>
@@ -322,12 +327,13 @@ body[data-mode="ind"] [data-show="corp"],body[data-mode="corp"] [data-show="ind"
         <div><h3>베이직</h3><p class="for">신고 누락 없이, 기본에 충실한 꼼꼼한 기장 서비스</p></div>
         <div class="price"><span class="won num" data-show="ind">88,000원</span><span class="won num" data-show="corp">132,000원</span><span class="per">/ 월</span></div>
         <div class="price-note num"><span data-show="ind">공급가 80,000원 + 부가세 8,000원</span><span data-show="corp">공급가 120,000원 + 부가세 12,000원</span></div>
+        <div class="elig"><span data-show="ind">직원 5인 미만 사업장</span><span data-show="corp">1인 법인 한정 (대표자 외 직원 없음)</span></div>
         <ul>
           <li class="g">인건비</li>
           <li>원천세 신고 · 지급명세서 제출</li>
           <li>연말정산</li>
           <li>4대보험 취득 · 상실 신고</li>
-          <li>급여 계산 · 급여명세서 작성 <span class="note">(직원 5인 미만)</span></li>
+          <li>급여 계산 · 급여명세서 작성</li>
           <li class="g">부가세</li>
           <li>부가가치세 신고</li>
           <li class="g"><span data-show="ind">소득세</span><span data-show="corp">법인세</span></li>
@@ -345,6 +351,7 @@ body[data-mode="ind"] [data-show="corp"],body[data-mode="corp"] [data-show="ind"
         <div><h3>프리미엄</h3><p class="for">세금을 미리 알고 대비하는 기장 서비스</p></div>
         <div class="price"><span class="won num" data-show="ind">110,000원</span><span class="won num" data-show="corp">165,000원</span><span class="per">/ 월</span></div>
         <div class="price-note num"><span data-show="ind">공급가 100,000원 + 부가세 10,000원</span><span data-show="corp">공급가 150,000원 + 부가세 15,000원</span></div>
+        <div class="eligs"><div class="elig">직원 5인 미만 사업장</div><div class="elig">5인 이상 사업장은 별도 협의</div></div>
         <ul>
           <li class="all">베이직 서비스 전체 포함</li>
           <li class="g"><span data-show="ind">소득세</span><span data-show="corp">법인세</span></li>
@@ -373,6 +380,8 @@ body[data-mode="ind"] [data-show="corp"],body[data-mode="corp"] [data-show="ind"
     </div>
 
     <div class="fine">
+      <span>· <b>직원 5인 이상 사업장</b>은 업무 범위에 따라 기장료를 별도 협의할 수 있습니다.</span>
+      <span data-show="corp">· 법인 베이직은 <b>대표자 외 직원이 없는 1인 법인</b>에 한해 적용되며, 직원이 있는 법인은 프리미엄부터 이용하실 수 있습니다.</span>
       <span>· 기장료는 매출 규모, 직원 수, 업종 등에 따라 상담 후 조정될 수 있습니다.</span>
       <span>· 연 1회 세무조정료, 세무조사 대응은 월 기장료와 별도입니다. (아래 조정료 안내 참고)</span>
     </div>
@@ -391,11 +400,13 @@ body[data-mode="ind"] [data-show="corp"],body[data-mode="corp"] [data-show="ind"
       <table>
         <thead><tr><th>서비스</th><th style="text-align:center">베이직</th><th style="text-align:center">프리미엄</th><th style="text-align:center">경리아웃소싱</th></tr></thead>
         <tbody>
+          <tr class="grp"><td colspan="4">이용 대상</td></tr>
+          <tr><td>대상 사업장</td><td style="text-align:center"><span data-show="ind">최초 계약 또는<br>직원 5인 미만</span><span data-show="corp">1인 법인</span></td><td style="text-align:center"><span data-show="ind">개인사업자 누구나</span><span data-show="corp">법인사업자 누구나</span></td><td style="text-align:center">별도 협의</td></tr>
           <tr class="grp"><td colspan="4">인건비</td></tr>
           <tr><td>원천세 신고 · 지급명세서 제출</td><td class="c">●</td><td class="c">●</td><td class="c">●</td></tr>
           <tr><td>연말정산</td><td class="c">●</td><td class="c">●</td><td class="c">●</td></tr>
           <tr><td>4대보험 취득 · 상실 신고</td><td class="c">●</td><td class="c">●</td><td class="c">●</td></tr>
-          <tr><td>급여 계산 · 급여명세서 작성 <span class="note">(직원 5인 미만)</span></td><td class="c">●</td><td class="c">●</td><td class="c">●</td></tr>
+          <tr><td>급여 계산 · 급여명세서 작성</td><td class="c">●</td><td class="c">●</td><td class="c">●</td></tr>
           <tr class="grp"><td colspan="4">부가세</td></tr>
           <tr><td>부가가치세 신고</td><td class="c">●</td><td class="c">●</td><td class="c">●</td></tr>
           <tr><td>매출증빙 발행 대행 <span class="note">(거래명세표 · 세금계산서 · 현금영수증)</span></td><td class="x">–</td><td class="x">–</td><td class="c">●</td></tr>
